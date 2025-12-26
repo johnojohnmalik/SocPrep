@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSec Flashcards | כרטיסיות סייבר</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Language Selection Screen -->
+    <div class="lang-screen" id="langScreen">
+        <div class="lang-container">
+            <div class="lang-logo">🛡️</div>
+            <h1 class="lang-title">CyberSec Flashcards</h1>
+            <p class="lang-subtitle">Choose your language / בחר שפה</p>
+            <div class="lang-buttons">
+                <button class="lang-btn" data-lang="en">
+                    <span class="lang-flag">🇬🇧</span>
+                    <span>English</span>
+                </button>
+                <button class="lang-btn" data-lang="he">
+                    <span class="lang-flag">🇮🇱</span>
+                    <span>עברית</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div class="app-container hidden" id="appContainer">
+        <!-- Header with stats -->
+        <header class="header">
+            <h1>🛡️ <span data-i18n="title">CyberSec Training</span></h1>
+            <div class="stats">
+                <span class="stat" id="progress">0/0</span>
+                <span class="stat" id="streak">🔥 0</span>
+                <button class="lang-toggle" id="langToggle" title="Change language">🌐</button>
+            </div>
+        </header>
+
+        <!-- Main flashcard area -->
+        <main class="card-container">
+            <div class="flashcard" id="flashcard">
+                <!-- Question side -->
+                <div class="card-face card-front" id="cardFront">
+                    <div class="card-category" id="category">Loading...</div>
+                    <div class="card-question" id="question"></div>
+                    <div class="card-hint" id="hint"></div>
+                </div>
+                
+                <!-- Answer side -->
+                <div class="card-face card-back" id="cardBack">
+                    <div class="card-answer" id="answer"></div>
+                    <div class="card-explanation" id="explanation"></div>
+                </div>
+            </div>
+
+            <!-- Multiple choice options (shown when applicable) -->
+            <div class="mc-options" id="mcOptions"></div>
+
+            <!-- Action buttons -->
+            <div class="actions">
+                <button class="btn btn-reveal" id="revealBtn" data-i18n="reveal">Reveal Answer</button>
+                <div class="feedback-btns hidden" id="feedbackBtns">
+                    <button class="btn btn-wrong" id="wrongBtn" onclick="handleFeedback('wrong')">❌ Didn't Know</button>
+                    <button class="btn btn-partial" id="partialBtn" onclick="handleFeedback('partial')">〜 Partially</button>
+                    <button class="btn btn-right" id="rightBtn" onclick="handleFeedback('right')">✓ Knew It</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer controls -->
+        <footer class="footer">
+            <button class="btn btn-secondary" id="resetBtn" data-i18n="reset">Reset Progress</button>
+            <div class="mastery" id="mastery">Mastery: 0%</div>
+        </footer>
+    </div>
+
+    <script src="script.js?v=5"></script>
+</body>
+</html>
